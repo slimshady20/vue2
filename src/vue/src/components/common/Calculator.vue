@@ -92,7 +92,7 @@ data(){
         grid-column: 1 / 5;
         background-color: #333;
         color: white;
-        //3333
+
     }
     .zero {
         grid-column: 1 / 3;
