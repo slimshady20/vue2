@@ -29,9 +29,17 @@
 </template>
 
 <script>
-
+    import{mapState} from 'vuex'
     export default {  // 함수형
         // data: {aaa:'a'}, 이건 mapping vue는 binding을 해야해서 key가 method랑 연결됨
+        computed:{
+            ...mapState(
+                {fail: state=> state.player.fail,
+                    auth: state => state.player.auth
+
+                }
+            )
+        },
         data(){
             return{
                 userid: '',
@@ -40,7 +48,7 @@
         },
         methods: {
             login(){
-
+            this.$store.dispatch('player/login',{playerId: this.userid,backNo:this.passwd})
             },
             moveToPassword() {
                 document.getElementById('passwd').focus()
